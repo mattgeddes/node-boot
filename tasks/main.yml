@@ -15,7 +15,7 @@
       user: "{{ item.user }}"
       password: "{{ item.pass }}"
       state: "{{ item.power }}"
-  when: item.state is defined
+  when: item.power is defined
   no_log: true
   with_items:
       - "{{ bmcs }}"
