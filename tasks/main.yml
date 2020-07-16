@@ -14,7 +14,7 @@
       name: "{{ item.addr }}"
       user: "{{ item.user }}"
       password: "{{ item.pass }}"
-      state: "{{ item.bootdev }}"
+      state: "{{ item.power }}"
   when: item.state is defined
   no_log: true
   with_items:
