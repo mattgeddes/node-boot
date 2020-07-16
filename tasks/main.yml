@@ -1,0 +1,21 @@
+---
+- name: Set one-shot boot state
+  ipmi_boot:
+      name: "{{ item.addr }}"
+      user: "{{ item.user }}"
+      password: "{{ item.pass }}"
+      bootdev: "{{ item.bootdev }}"
+  when: item.bootdev is defined
+  no_log: true
+  with_items:
+      - "{{ bmcs }}"
+- name: Set chassis power state
+  ipmi_power:
+      name: "{{ item.addr }}"
+      user: "{{ item.user }}"
+      password: "{{ item.pass }}"
+      state: "{{ item.bootdev }}"
+  when: item.state is defined
+  no_log: true
+  with_items:
+      - "{{ bmcs }}"
